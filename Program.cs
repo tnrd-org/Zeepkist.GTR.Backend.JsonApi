@@ -38,6 +38,11 @@ builder.Services.AddJsonApi<GTRContext>(options =>
 
 WebApplication app = builder.Build();
 
+app.UseCors(policyBuilder => policyBuilder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
